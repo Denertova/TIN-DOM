@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsywność Menu</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+
+    header {
+      background-color: #770034;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      background-color: #ddd;
+      padding: 10px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #931851;
+      font-weight: bold;
+      padding: 8px 16px;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #bbb;
+    }
+
+    #menu-icon {
+      cursor: pointer;
+      display: none;
+    }
+
+    /* Media Query dla małych ekranów */
+    @media only screen and (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+        display: none;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      nav a {
+        display: block;
+        width: 100%;
+        text-align: center;
+      }
+
+      #menu-icon {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Moja Strona</h1>
+</header>
+
+<nav>
+  <a href="#">Strona Główna</a>
+  <a href="#">O Nas</a>
+  <a href="#">Usługi</a>
+  <a href="#">Kontakt</a>
+</nav>
+
+<div id="menu-icon">&#9776;</div>
+
+<script>
+  var menuIcon = document.getElementById('menu-icon');
+  var navigation = document.querySelector('nav');
+
+  menuIcon.addEventListener('click', function() {
+    navigation.classList.toggle('show');
+  });
+</script>
+
+</body>
+</html>

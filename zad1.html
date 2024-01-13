@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prosta Modyfikacja DOM</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .myDiv {
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      border: 1px solid black;
+      display: inline-block;
+      background-color: #3498db;
+      color: #fff;
+      font-size: 18px;
+      line-height: 100px;
+    }
+
+    button {
+      background-color: #2ecc71;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="myDiv"></div>
+<div class="myDiv"></div>
+<div class="myDiv"></div>
+<div class="myDiv"></div>
+
+<button onclick="addDiv()">Dodaj div</button>
+<button onclick="removeDiv()">Usuń div</button>
+<button onclick="changeColor()">Zmień kolor</button>
+<button onclick="changeText()">Tekst</button>
+
+<script>
+  function addDiv() {
+    var newDiv = document.createElement("div");
+    newDiv.className = "myDiv";
+    document.body.appendChild(newDiv);
+  }
+
+  function removeDiv() {
+    var divs = document.querySelectorAll(".myDiv");
+    if (divs.length > 0) {
+      var firstDiv = divs[0];
+      firstDiv.parentNode.removeChild(firstDiv);
+    }
+  }
+
+  function changeColor() {
+    var divs = document.querySelectorAll(".myDiv");
+    if (divs.length >= 3) {
+      var thirdDiv = divs[2];
+      thirdDiv.style.backgroundColor = "#e74c3c";
+    }
+  }
+
+  function changeText() {
+    var divs = document.querySelectorAll(".myDiv");
+    for (var i = 0; i < divs.length; i++) {
+      divs[i].innerText = "nowy tekst";
+    }
+  }
+</script>
+
+</body>
+</html>
